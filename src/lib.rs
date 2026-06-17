@@ -1,5 +1,4 @@
 use pumpkin_plugin_api::{Context, Plugin, PluginMetadata};
-use tracing::event;
 use tracing::info;
 
 pub mod api;
