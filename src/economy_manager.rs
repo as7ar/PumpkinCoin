@@ -18,7 +18,10 @@ impl EconomyManager {
     pub fn register(plugin: Plugin, economy: Box<dyn Economy>) {
         let provider = PROVIDER.get_or_init(|| RwLock::new(None));
 
-        *provider.write().unwrap() = Some(ProcviderInfo(plugin, Arc::new(RwLock::new(economy))));
+        *provider.write().unwrap() = Some(ProcviderInfo {
+            plugin: plugin,
+            provider: Arc::new(RwLock::new(economy)),
+        });
     }
 
     pub fn provider() -> Option<EconomyProvider> {
