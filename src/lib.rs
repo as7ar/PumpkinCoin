@@ -1,4 +1,4 @@
-use pumpkin_plugin_api::{Context, PLugin, PluginMetadata};
+use pumpkin_plugin_api::{Context, Plugin, PluginMetadata};
 use tracing::event;
 use tracing::info;
 
@@ -28,7 +28,7 @@ impl Plugin for PumpkinCoin {
         }
     }
 
-    fn on_load(&mut self, _context: Type) -> pumpkin_plugin_api::Result<()> {
+    fn on_load(&mut self, _context: Context) -> pumpkin_plugin_api::Result<()> {
         info!("PumpkinCoin Loaded");
         Ok(())
     }
