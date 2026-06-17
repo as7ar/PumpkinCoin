@@ -6,6 +6,8 @@ an Ecocomy API for PumpkinMC
 
 ### Struct Economy Implementation
 ```rust
+use pumpkin_plugin_api::Plugin;
+
 use pumpkin_coin::api:economy::Economy;
 use pumpkin_coin::EconomyManager;
 
@@ -14,7 +16,7 @@ impl Economy for Econ {
     //...
 }
 
-EconomyManager.register(Box::new(Econ));
+EconomyManager.register(Plugin, Box::new(Econ));
 ```
 
 ###
