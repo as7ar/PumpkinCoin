@@ -1,5 +1,5 @@
 # PumpkinCoin
-[![CI](https://github.com/as7ar/PumpkinCoin/actions/workflows/build.yml/badge.svg)](https://github.com/as7ar/PumpkinCoin/actions/workflows/build.yml)
+[![CI](https://github.com/as7ar/PumpkinCoin/actions/workflows/rust.yml/badge.svg)](https://github.com/as7ar/PumpkinCoin/actions/workflows/rust.yml)
 
 an Ecocomy API for PumpkinMC
 
