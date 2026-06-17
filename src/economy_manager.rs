@@ -11,9 +11,9 @@ pub struct ProcviderInfo<T: Plugin> {
 
 type EconomyProvider = Arc<RwLock<Box<dyn Economy + 'static>>>;
 
-static PROVIDER: OnceLock<RwLock<Option<ProcviderInfo>>> = OnceLock::new();
+static PROVIDER: OnceLock<RwLock<Option<ProcviderInfo<T>>>> = OnceLock::new();
 
-pub struct EconomyManager;
+pub struct EconomyManager<T: Plugin>;
 impl<T: Plugin> EconomyManager<T> {
     pub fn register(plugin: T, economy: Box<dyn Economy + 'static>) {
         let provider = PROVIDER.get_or_init(|| RwLock::new(None));

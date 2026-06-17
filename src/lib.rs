@@ -1,5 +1,6 @@
-use pumpkin_plugin_api::Plugin;
+use pumpkin_plugin_api::{Context, PLugin, PluginMetadata};
 use tracing::event;
+use tracing::info;
 
 pub mod api;
 pub mod economy_manager;
@@ -13,7 +14,7 @@ struct PumpkinCoin;
 
 impl Plugin for PumpkinCoin {
     fn new() -> Self {
-        PumpkinCoin
+        Self
     }
 
     fn metadata(&self) -> PluginMetadata {
@@ -22,10 +23,12 @@ impl Plugin for PumpkinCoin {
             version: env!("CARGO_PKG_VERSION").into(),
             authors: vec!["AS7AR".into()],
             description: "An Economy API for PUMPKINMC".into(),
+            dependencies: vec![],
+            permissions: vec![],
         }
     }
 
-    fn on_load(&mut self, _context: Context) -> pumpkin_plugin_api::Result<()> {
+    fn on_load(&mut self, _context: Type) -> pumpkin_plugin_api::Result<()> {
         info!("PumpkinCoin Loaded");
         Ok(())
     }
