@@ -1,6 +1,7 @@
 # PumpkinCoin
-an Ecocomy API for PumpkinMC
+[![CI](https://github.com/as7ar/PumpkinCoin/actions/workflows/rust.yml/badge.svg)](https://github.com/as7ar/PumpkinCoin/actions/workflows/rust.yml)
 
+an Ecocomy API for PumpkinMC
 
 ## Usage
 
