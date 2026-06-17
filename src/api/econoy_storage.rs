@@ -1,3 +1,5 @@
+use uuid::Uuid;
+
 pub trait EconomyStorage {
     fn load(&self, uuid: Uuid) -> Option<Account>;
 

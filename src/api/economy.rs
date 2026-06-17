@@ -1,3 +1,5 @@
+use uuid::Uuid;
+
 use crate::err::EconomyError;
 
 pub trait Economy {
