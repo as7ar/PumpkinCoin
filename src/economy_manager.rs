@@ -4,18 +4,18 @@ use pumpkin_plugin_api::Plugin;
 
 use crate::api::Economy;
 
-pub struct ProcviderInfo {
-    plugin: Plugin,
+pub struct ProcviderInfo<T: Plugin> {
+    plugin: T,
     provider: EconomyProvider,
 }
 
-type EconomyProvider = Arc<RwLock<Box<dyn Economy>>>;
+type EconomyProvider = Arc<RwLock<Box<dyn Economy + 'static>>>;
 
 static PROVIDER: OnceLock<RwLock<Option<ProcviderInfo>>> = OnceLock::new();
 
 pub struct EconomyManager;
-impl EconomyManager {
-    pub fn register(plugin: Plugin, economy: Box<dyn Economy>) {
+impl<T: Plugin> EconomyManager<T> {
+    pub fn register(plugin: T, economy: Box<dyn Economy + 'static>) {
         let provider = PROVIDER.get_or_init(|| RwLock::new(None));
 
         *provider.write().unwrap() = Some(ProcviderInfo {

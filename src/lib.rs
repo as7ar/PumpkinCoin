@@ -1,13 +1,13 @@
+use pumpkin_plugin_api::Plugin;
+use tracing::event;
+
 pub mod api;
 pub mod economy_manager;
-mod err;
-pub(crate) mod event;
+pub mod err;
+pub mod utils;
 
 pub use crate::api::*;
 pub use crate::economy_manager::*;
-
-use pumpkin_plugin_api::Plugin;
-use tracing::event;
 
 struct PumpkinCoin;
 
@@ -25,12 +25,12 @@ impl Plugin for PumpkinCoin {
         }
     }
 
-    fn on_load(&mut self, context: Context) -> pumpkin_plugin_api::Result<()> {
+    fn on_load(&mut self, _context: Context) -> pumpkin_plugin_api::Result<()> {
         info!("PumpkinCoin Loaded");
         Ok(())
     }
 
-    fn on_unload(&mut self, context: Context) -> pumpkin_plugin_api::Result<()> {
+    fn on_unload(&mut self, _context: Context) -> pumpkin_plugin_api::Result<()> {
         info!("PumpkinCoin Unloaded");
         Ok(())
     }

@@ -1,5 +1,7 @@
 use uuid::Uuid;
 
+use crate::utils::Account;
+
 pub trait EconomyStorage {
     fn load(&self, uuid: Uuid) -> Option<Account>;
 
